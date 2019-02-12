@@ -11,7 +11,7 @@ enum class Gender : const char
 class Person {
 	
 	public:
-    Person(const std::string & firstName,
+    Person(const std::string & name,
            const std::string & lastName,
            const std::string & pesel,
            Gender gender,

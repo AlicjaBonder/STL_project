@@ -5,7 +5,7 @@
 class Student:public Person
 {
 public:
-    Student(const std::string & firstName,
+    Student(const std::string & name,
             const std::string & lastName,
             const std::string & pesel,
             Gender gender,
