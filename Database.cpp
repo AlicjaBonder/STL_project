@@ -16,19 +16,18 @@ void Database::addPerson(Person *person)
 }
 void Database::sortByIndex()
 {
-    std::sort(begin(students_), end(students_), [](const auto &lhs, const auto &rhs) {
-        return lhs.getIndex() < rhs.getIndex();
+    std::sort(begin(persons_), end(persons_), [](const auto &lhs, const auto &rhs) {
+        return lhs->getIndex() < rhs->getIndex();
     });
 }
-
 void Database::removeStudent(int index)
 {
-    auto iter = std::find_if(begin(students_), end(students_), [index](const auto &student) {
-        return student.getIndex() == index;
+    auto iter = std::find_if(begin(persons_), end(persons_), [index](const auto &student) {
+        return student->getIndex() == index;
     });
-    if (iter != end(students_))
+    if (iter != end(persons_))
     {
-        students_.erase(iter);
+        persons_.erase(iter);
     }
 }
 void Database::removeByPesel(const std::string &pesel)
@@ -71,11 +70,16 @@ void Database::sortByPesel()
         return lhs.getPesel() < rhs.getPesel();
     });
 }
-Person *Database::findByPesel(const std::string &pesel) const
+Person* Database::findByPesel(const std::string &pesel) const
 {
     auto iter = std::find_if(begin(persons_), end(persons_), [pesel](const auto &person) {
         return person.getPesel() == pesel;
     });
+
+    if(iter != end(persons_)){
+        return *iter;
+    }
+    throw NotFound("Does not exist");
 }
 
 void Database::changeAddress(const std::string &pesel, const std::string &newAddress)
@@ -84,4 +88,3 @@ void Database::changeAddress(const std::string &pesel, const std::string &newAdd
     auto person = findByPesel(pesel);
     person->setAddress(newAddress);
 }
-

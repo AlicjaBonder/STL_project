@@ -17,19 +17,17 @@ class Database
 {
   public:
     void addPerson(Person* person);
-    void sortByIndex();
-    void removeStudent(int index);
     void removeByPesel(const std::string &pesel);
-
+    void removeStudent(int index);
     Persons findByLastName(const std::string &lastName) const;
     Person* findByPesel(const std::string &pesel) const;
     void show();
     void sortByName();
     void sortByPesel();
+    void sortByIndex();
     void changeAddress(const std::string & pesel, const std::string & newAddress);
     void found(Persons);
 
   private:
     Persons persons_;
-    Students students_;
 };

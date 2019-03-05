@@ -21,8 +21,7 @@ class Person
     std::string getLastName() const;
     std::string getPesel() const;
     void setAddress(const std::string &);
-    virtual int getSalary() const;
-    virtual void setSalary(unsigned int);
+    virtual int getIndex() const;
     virtual std::string to_string(char delimeter = ' ') const;
 
   private:

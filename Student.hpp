@@ -14,7 +14,7 @@ public:
             int index);
  
     std::string to_string(char delimeter = ' ') const override;
-    int getIndex() const;
+    int getIndex() const override;
 
 private:
     int index_;

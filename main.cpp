@@ -32,12 +32,16 @@ int main()
     std::cout << std::endl;
     std::cout << "after sorting" << std::endl;
     db.show();
+    db.sortByIndex();
+    std::cout << "after sorting" << std::endl;
+    db.show();
     auto kowalski = db.findByPesel("12345678");
 
     db.changeAddress("12345678", "Zmieniona 1/1");
     std::cout << "after change address" << std::endl;
     db.show();
-    db.removeStudent(123456);
+    db.removeByPesel("23456789");
+    db.removeStudent(111111);
     std::cout << "after remove" << std::endl;
     db.show();
 

@@ -20,13 +20,8 @@ std::string Person::getPesel() const
     return pesel_;
 }
 
-int Person::getSalary() const
-{
+int Person::getIndex() const{
     return 0;
-}
-
-void Person::setSalary(unsigned int)
-{
 }
 
 void Person::setAddress(const std::string &newAddress)
